@@ -12,13 +12,19 @@ class AppSensor {
    * Logs the message to the terminal window [might be removed].
    */
   log(code, message) {
+    // Ensure the code exists.
+    if (typeof this.codes[code] === 'undefined') {
+      throw new Error('Detection Code Not Found')
+    }
+
     const payload = this.codes[code]
 
     if (message) {
       payload.customMessage = message
     }
 
-    console.log('this is payload', payload)
+    // Debugging
+    // console.log('this is payload', payload)
 
     return payload
   }
