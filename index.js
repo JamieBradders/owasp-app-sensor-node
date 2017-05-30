@@ -1,7 +1,11 @@
-module.exports = (options) => {
-  const config = options ? options : require('./module.config.js')
+class AppSensor {
+  constructor(options) {
+    this.config = options ? options : require('./module.config.js')
+  }
 
-  // Maybe we should iterate through the files here
-  // in a _bootstrap.js perhaps?
-  return (req, res, next) => require('./something.js')(req, res, next, config)
+  log() {
+    console.log('something is happening', this.config)
+  }
 }
+
+module.exports = AppSensor
