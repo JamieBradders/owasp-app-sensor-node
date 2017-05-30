@@ -17,4 +17,8 @@ describe('AppSensor', function () {
   it('should error if the detection code does not exist', function () {
     expect(() => this.sensor.log('INV4L1D')).to.throw('Detection Code Not Found')
   })
+
+  it('should return an additional customMessage property if `message` argument is provided', function () {
+    expect(this.sensor.log('ACE1', 'Here is my custom message')).to.have.property('customMessage')
+  })
 })
