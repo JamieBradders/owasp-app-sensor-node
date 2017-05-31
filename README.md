@@ -1,6 +1,6 @@
 # App Sensor Logger Utility Module
 
-## 🚨 Please Do Not Use This in Production
+## 🚨 Please Do Not Use This in Production
 
 I've started developing this module as a proof of concept as part of a learning exercise to understand how to publish packages to the NPM repository.
 
