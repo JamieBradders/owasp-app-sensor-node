@@ -1,4 +1,4 @@
-class AppSensor {
+class AppSensorLogger {
   constructor(options) {
     this.config = options ? options : require('./config/sensor.config.js')
     this.codes = require('./config/sensor.codes.json')
@@ -6,10 +6,9 @@ class AppSensor {
 
   /**
    * log()
+   * Submits a log the chosen external logging system.
    * @param {string} code
    * @param {string} [message]
-   * Submits a log the chosen external logging system.
-   * Logs the message to the terminal window [might be removed].
    */
   log(code, message) {
     // Ensure the code exists.
@@ -24,10 +23,12 @@ class AppSensor {
     }
 
     // Debugging
-    // console.log('this is payload', payload)
+    console.log('this is payload', payload)
+
+    // @TODO Post the payload to external logger.
 
     return payload
   }
 }
 
-module.exports = AppSensor
+module.exports = AppSensorLogger
