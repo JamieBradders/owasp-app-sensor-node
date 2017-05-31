@@ -1,11 +1,15 @@
 {
-  "name": "owasp-app-sensor-node",
+  "name": "owasp-app-sensor-node-logger",
   "version": "1.0.0",
-  "description": "Proof of concept for Node implementation of OWASP AppSensor.",
+  "description": "Proof of concept Node based OWASP AppSensor Logger.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha tests"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.0.0",
+    "mocha": "^3.4.2"
+  }
 }

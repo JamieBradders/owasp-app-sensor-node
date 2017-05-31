@@ -1,0 +1,10 @@
+{
+  "ACE1": {
+    "message": "ACE1 Error Message",
+    "type": "AccessControlException"
+  },
+  "ACE2": {
+    "message": "ACE2 Error Message",
+    "type": "AccessControlException"
+  }
+}
