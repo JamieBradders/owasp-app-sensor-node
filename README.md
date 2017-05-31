@@ -6,7 +6,7 @@ I've started developing this module as a proof of concept as part of a learning 
 
 ## ⚠️ Detect Activity and Log
 
-This module simply provides a helper method called `log()` which takes a detection code as an argument. The method looks up the supplied code and returns a message. Note that this module doesn't contain the logic required to know when to trigger a log, it simply acts a mechanism to carry out the logging.
+This module simply provides a helper method called `log()` which takes two arguments - a detection code and an optional custom error message, both should be a string. The method looks up the supplied code and returns a message. Note that this module doesn't contain the logic required to know when to trigger a log, it simply acts a mechanism to carry out the logging.
 
 Overtime the module will account for all of the [OWASP AppSensor Detection Codes](https://www.owasp.org/index.php/AppSensor_DetectionPoints) but there are currently only two, see below:
 
