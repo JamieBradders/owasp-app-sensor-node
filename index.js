@@ -1,3 +1,5 @@
+const rp = require('request-promise-native')
+
 class AppSensorLogger {
   constructor(options) {
     this.config = options ? options : require('./config/sensor.config.js')
@@ -10,7 +12,7 @@ class AppSensorLogger {
    * @param {string} code
    * @param {string} [message]
    */
-  log(code, message) {
+  log(code, message, callback) {
     // Ensure the code exists.
     if (typeof this.codes[code] === 'undefined') {
       throw new Error('Detection Code Not Found')
@@ -22,12 +24,30 @@ class AppSensorLogger {
       payload.customMessage = message
     }
 
-    // Debugging
-    console.log('this is payload', payload)
+    // Test: Handle optional callback...
+    // Start by configuring the options
+    const options = {
+      method: 'POST',
+      uri: 'http://localhost:3000/external-log',
+      body: {
+        some: 'payload'
+      },
+      json: true
+    }
 
-    // @TODO Post the payload to external logger.
-
-    return payload
+    // Carry out a request
+    // Return a promise so that we can react
+    rp(options)
+      .then(function (response) {
+        if (callback && typeof callback === 'function') {
+          callback(response)
+        } else {
+          console.log('Response from outside of the callback', response)
+        }
+      })
+      .catch(function (error) {
+        console.error('There was an error with the Api', error)
+      })
   }
 }
 
